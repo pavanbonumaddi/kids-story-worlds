@@ -1,9 +1,6 @@
 <?php
 require_once "config.php";
-if ($pdo === null) {
-    header("Location: static.html");
-    exit;
-}
+
 
 $languages = $pdo->query("SELECT * FROM languages ORDER BY name")->fetchAll(PDO::FETCH_ASSOC);
 $categories = $pdo->query("SELECT * FROM categories ORDER BY name")->fetchAll(PDO::FETCH_ASSOC);
