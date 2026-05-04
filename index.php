@@ -1,7 +1,11 @@
 <?php
 require_once "config.php";
 
+if ($pdo === null) {
+    die("Database not connected. Please connect MySQL or use a static version.");
+}
 
+$languages = $pdo->query("SELECT * FROM languages ORDER BY name")->fetchAll(PDO::FETCH_ASSOC);
 $languages = $pdo->query("SELECT * FROM languages ORDER BY name")->fetchAll(PDO::FETCH_ASSOC);
 $categories = $pdo->query("SELECT * FROM categories ORDER BY name")->fetchAll(PDO::FETCH_ASSOC);
 
